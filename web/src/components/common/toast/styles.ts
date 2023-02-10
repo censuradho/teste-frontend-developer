@@ -4,12 +4,12 @@ import * as Toast from '@radix-ui/react-toast';
 export const Viewport = styled(Toast.Viewport, {
   position: 'fixed',
   top: 0,
-  left: 0,
+  right: 0,
   display: 'flex',
   flexDirection: 'column',
   padding: '1rem',
   gap: 10,
-  width: '100%',
+  width: 390,
   maxWidth: '100vw',
   margin: 0,
   listStyle: 'none',
@@ -83,6 +83,7 @@ export const Action = styled(Toast.Action, {
 
 export const { 
   Provider,
+  Close
 } = Toast
 
 export const Container = styled('div', {})

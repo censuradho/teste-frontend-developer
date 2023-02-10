@@ -1,5 +1,6 @@
 import { Toast } from "@/components/common";
 import { ToastMessage } from "@/components/common/toast/types";
+import useTimeout from "@/hooks/useTimeout";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { ToastContextProps } from "./types";
 
@@ -19,6 +20,13 @@ export function ToastProvider ({ children}: PropsWithChildren) {
     setMessage(message)
   }
 
+  const handleClear = (state: boolean) => {
+    if (state) return;
+
+    setMessage(null)
+    setOpen(false)
+  }
+
   return (
     <ToastContext.Provider
       value={{
@@ -27,7 +35,7 @@ export function ToastProvider ({ children}: PropsWithChildren) {
     >
       <Toast 
         open={open} 
-        onOpenChange={setOpen}
+        onOpenChange={handleClear}
         message={message}
       />
       {children}

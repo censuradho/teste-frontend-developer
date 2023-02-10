@@ -10,7 +10,8 @@ export function Toast (props: ToastProps) {
 
   return (
     <Styles.Provider>
-      <Styles.Root 
+      <Styles.Root
+        duration={3000}
         open={open} 
         onOpenChange={onOpenChange}
       >
