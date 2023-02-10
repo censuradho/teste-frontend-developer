@@ -3,27 +3,24 @@ import {
   AiOutlineClose, AiOutlineHome, AiOutlineMail, AiOutlineUser
 } from '@meronex/icons/ai';
 import {
+  BiCodeAlt, BiCommand, BilFacebookSquare, BilGithub,
+  BilInstagramAlt, BilSpotify, BilTwitter, BisDashboard, BisShareAlt
+} from '@meronex/icons/bi';
+import {
   EnLocationPin
 } from '@meronex/icons/en';
 import {
-  FaDatabase, FaSuitcase
+  FaDatabase, FaOpencart, FaSuitcase
 } from '@meronex/icons/fa';
-import {
-  VscMenu
-} from '@meronex/icons/vsc';
-import {
-  FaOpencart
-} from '@meronex/icons/fa';
-import {
-  BiCodeAlt, BiCommand, BilFacebookSquare, BilGithub,
-  BilInstagramAlt, BilSpotify, BilTwitter, BisShareAlt
-} from '@meronex/icons/bi';
 import {
   LogoWhatsapp
 } from '@meronex/icons/ios';
 import {
   RiFileCopyLine, RiShareBoxLine
 } from '@meronex/icons/ri';
+import {
+  VscMenu
+} from '@meronex/icons/vsc';
 
 import {
   EnRss
@@ -33,15 +30,12 @@ import {
   BsCodeSlash, BsFillEyeFill, BsFillEyeSlashFill
 } from '@meronex/icons/bs';
 import {
-  MdcClockFast, MdcWeb,
-  MdcPokerChip
-} from '@meronex/icons/mdc';
-import {
-  GiPokerHand
-} from '@meronex/icons/gi';
-import {
-  CgGym
+  CgGym, CgMenuLeft
 } from '@meronex/icons/cg/';
+import {
+  MdcClockFast, MdcPokerChip, MdcWeb
+} from '@meronex/icons/mdc';
+
 
 export const icons = {
   suiteCase: FaSuitcase,
@@ -72,5 +66,7 @@ export const icons = {
   gym: CgGym,
   eyeClose: BsFillEyeSlashFill,
   eye: BsFillEyeFill,
-  product: FaOpencart
+  product: FaOpencart,
+  dashboard: BisDashboard,
+  menuLeft: CgMenuLeft 
 }

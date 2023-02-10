@@ -6,14 +6,14 @@ export const Container = styled('div', {
   alignItems: 'center',
   borderRadius: '50%',
   background: '$primary',
-  span: {
+  strong: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontWeight: 600,
+    fontWeight: 800,
     lineHeight: 0,
     fontSize: '1vw',
-    color: '$background',
+    color: '$heading',
     textTransform: 'uppercase'
   }
 })

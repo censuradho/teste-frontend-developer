@@ -5,7 +5,7 @@ export const Navigation = styled('nav', {
   position: 'fixed',
   bottom: 0,
   right: 0,
-  background: '$foreground',
+  background: '$background',
   borderTop: '$border 1px solid',
   zIndex: 10,
 
@@ -45,9 +45,7 @@ export const Item = styled('li', {
     flex: 1,
     
     '&.active': {
-      background: '$primary',
       color: '$heading',
-
     }
   },
 

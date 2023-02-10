@@ -3,8 +3,8 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 export const Header = styled('header', {
   width: '100%',
-  padding: '32px',
   zIndex: 10,
+  padding: '1rem',
 })
 
 export const Username = styled('strong', {
@@ -175,12 +175,12 @@ const itemStyles = {
   cursor: 'pointer',
 
   '&[data-disabled]': {
-    color: '$ancesst2',
+    color: '$ancesst7',
     pointerEvents: 'none',
   },
 
   '&[data-highlighted]': {
-    backgroundColor: '$ancesst2',
+    backgroundColor: '$ancesst7',
     color: '$heading',
   },
 }
@@ -215,7 +215,14 @@ export const Trigger = styled(DropdownMenu.Trigger, {
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  gap: '1rem'
+  gap: '1rem',
+  outline: 'none',
+  padding: '1rem',
+  borderRadius: '$default',
+
+  '&:hover, &:focus': {
+    background: '$foreground'
+  }
 })
 
 export const {

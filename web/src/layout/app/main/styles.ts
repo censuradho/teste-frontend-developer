@@ -14,7 +14,7 @@ export const Main = styled('main', {
   display: 'flex',
   flexDirection: 'column',
   overflowY: 'auto',
-
+  background: '$foreground',
   paddingBottom: '10rem',
   '@laptops-min': {
     padding: '0 48px 48px'

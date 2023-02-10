@@ -6,6 +6,8 @@ export interface Auth {
 
 export interface AuthContextProps {
   auth: Auth | null
+  isLoading: boolean
+  isSigned: boolean
   onLoginWithEmailPassword: (payload: SignInWithEmailPasswordPayload) => Promise<SignInWithEmailPasswordResponse>
   onSignOut: () => void
 }

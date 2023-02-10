@@ -24,7 +24,7 @@ export function Avatar (props: AvatarProps) {
     const result = hasMultipleSentence ? `${firstChar}${alternativeText}` : firstChar
 
     return (
-      <span style={{ width: size, height: size }}>{result}</span>
+      <strong style={{ width: size, height: size }}>{result}</strong>
     )
   }
 
