@@ -1,7 +1,7 @@
 import { useLocalStorage } from "@/hooks";
 import { authService } from "@/service/api/auth";
 import { SignInWithEmailPasswordPayload } from "@/service/api/auth/types";
-import { createContext, PropsWithChildren } from "react";
+import { createContext, PropsWithChildren, useContext } from "react";
 import { Auth, AuthContextProps } from "./types";
 
 const AuthContext = createContext({} as AuthContextProps)
@@ -26,3 +26,5 @@ export function AuthProvider ({ children }: PropsWithChildren) {
     </AuthContext.Provider>
   )
 }
+
+export const useAuth = () => useContext(AuthContext)

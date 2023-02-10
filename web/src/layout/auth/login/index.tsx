@@ -1,15 +1,20 @@
 import { Box, Button } from '@/components/common'
 import { InputForm, InputPassword } from '@/components/common/hook-form'
 import { Typography } from '@/components/common/typography'
+import { paths } from '@/constants/routes'
+import { useAuth } from '@/context/auth'
+import { useBoolean } from '@/hooks'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import * as Styles from './styles'
 import { LoginFormData } from './types'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { loginValidationSchema } from './validations'
-import { useBoolean } from '@/hooks'
-import { authService } from '@/service/api/auth'
 
 export function LoginLayout () {
+  const router = useRouter()
+
+  const { onLoginWithEmailPassword } = useAuth()
 
   const [isLoading, toggleIsLoading] = useBoolean(false)
 
@@ -27,7 +32,11 @@ export function LoginLayout () {
     try {
       toggleIsLoading()
 
-      await authService.signInWithEmailPassword(data)
+      await onLoginWithEmailPassword(data)
+
+      router.push(paths.app.product)
+    } catch (err) {
+      console.log(err)
     } finally {
       toggleIsLoading()
     }
