@@ -12,6 +12,7 @@ export const colors = {
   secondary: '#B8A9FB',
   tertiary: '#BBE6EC',
   quaternary: '#6DD4C1',
+  error: '#D61355',
   background: ancesst.ancesst8,
   heading: ancesst.ancesst1,
   foreground: ancesst.ancesst7,

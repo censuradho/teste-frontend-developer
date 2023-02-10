@@ -7,6 +7,7 @@ import { LoginFormData } from './types'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { loginValidationSchema } from './validations'
 import { useBoolean } from '@/hooks'
+import { authService } from '@/service/api/auth'
 
 export function LoginLayout () {
 
@@ -26,6 +27,7 @@ export function LoginLayout () {
     try {
       toggleIsLoading()
 
+      await authService.signInWithEmailPassword(data)
     } finally {
       toggleIsLoading()
     }
@@ -44,17 +46,25 @@ export function LoginLayout () {
           <Box flexDirection="column" gap={1} fullWidth>
             <InputForm
               fullWidth
+              id="email"
               label="E-mail"
               register={register('email')}
+              errorMessage={errors?.email?.message}
             />
             <InputPassword 
               fullWidth
               label="Senha"
+              id="password"
               register={register('password')}
+              errorMessage={errors?.password?.message}
             />
           </Box>
           <Box marginTop={2} fullWidth>
-            <Button loading={isLoading} fullWidth>Logar</Button>
+            <Button 
+              type="submit" 
+              loading={isLoading} 
+              fullWidth
+            >Logar</Button>
           </Box>
         </Styles.Form>
       </Styles.Section>

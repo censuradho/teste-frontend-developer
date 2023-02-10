@@ -23,21 +23,22 @@ export const Title = styled('h1', {
 export const Section = styled('section', {
   width: '100%',
   flex: 1,
-  display: 'flex'
+  display: 'flex',
 })
 
 export const Form = styled('form', {
   width: '100%',
-  borderRadius: '$default',
   background: '$background',
-  padding: '3rem 1rem',
+  padding: '5rem 1rem',
+  borderRadius: '40px 40px 0 0',
   flex: 1,
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'column',
   
   '@laptops-min': {
-    maxWidth: '40rem'
+    maxWidth: '40rem',
+    padding: '2rem 1rem',
   }
 })
 
