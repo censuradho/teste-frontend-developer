@@ -15,11 +15,13 @@ export function AuthProvider ({ children }: PropsWithChildren) {
     return data
   }
 
+  const handleSignOut = () => {}
   return (
     <AuthContext.Provider
       value={{
         auth,
-        onLoginWithEmailPassword: handleLoginWithEmailPassword
+        onLoginWithEmailPassword: handleLoginWithEmailPassword,
+        onSignOut: handleSignOut
       }}
     >
       {children}

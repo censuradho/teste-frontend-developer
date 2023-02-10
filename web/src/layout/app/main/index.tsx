@@ -1,10 +1,15 @@
 import { useState } from 'react'
-import { BottomNav } from './components'
 import * as Styles from './styles'
 
 import dynamic from "next/dynamic";
 
-const Navigation = dynamic(() => import("./components").then(d => d.Navigation));
+const Navigation = dynamic(() => import("./components").then(d => d.Navigation), {
+  ssr: false
+});
+
+const BottomNav = dynamic(() => import("./components").then(d => d.BottomNav), {
+  ssr: false
+});
 
 export function MainLayout ({ children }: any) {
   const [isOpenNavigation, setIsOpenNavigation] = useState(false)

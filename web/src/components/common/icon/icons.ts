@@ -11,7 +11,9 @@ import {
 import {
   VscMenu
 } from '@meronex/icons/vsc';
-
+import {
+  FaOpencart
+} from '@meronex/icons/fa';
 import {
   BiCodeAlt, BiCommand, BilFacebookSquare, BilGithub,
   BilInstagramAlt, BilSpotify, BilTwitter, BisShareAlt
@@ -70,4 +72,5 @@ export const icons = {
   gym: CgGym,
   eyeClose: BsFillEyeSlashFill,
   eye: BsFillEyeFill,
+  product: FaOpencart
 }

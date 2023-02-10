@@ -14,7 +14,7 @@ export function BottomNav (props: BottomNavProps) {
       <Styles.List>
         <Styles.Item>
           <ActiveLink href={paths.app.product}>
-            <Icon name="users" size={20} />
+            <Icon name="product" size={20} />
             <span>Products</span>
           </ActiveLink>
         </Styles.Item>

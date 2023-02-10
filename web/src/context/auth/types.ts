@@ -7,4 +7,5 @@ export interface Auth {
 export interface AuthContextProps {
   auth: Auth | null
   onLoginWithEmailPassword: (payload: SignInWithEmailPasswordPayload) => Promise<SignInWithEmailPasswordResponse>
+  onSignOut: () => void
 }
