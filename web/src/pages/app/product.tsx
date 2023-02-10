@@ -1,10 +1,14 @@
+import { withAuthorization } from "@/hoc";
 import { MainLayout } from "@/layout/app/main";
 import { ProductLayout } from "@/layout/app/product";
 
-export default function ProductPage () {
+function ProductPage () {
   return (
     <MainLayout>
       <ProductLayout />
     </MainLayout>
   )
 }
+
+
+export default withAuthorization(ProductPage)
