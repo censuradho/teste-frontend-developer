@@ -1,4 +1,4 @@
-import { Box, Typography } from '@/components/common'
+import { Box, Pagination, Typography } from '@/components/common'
 import { productService } from '@/service/api/product'
 import { Product, Query } from '@/service/api/product/types'
 import { useEffect, useState } from 'react'
@@ -20,7 +20,7 @@ export function ProductLayout () {
     _page = 1
   } = (router.query as any || {}) as Query
 
-
+  const perPage = 10
   const [products, setProducts] = useState<Product[]>([])
   const [totalPages, setTotalPages] = useState(0)
 
@@ -31,17 +31,38 @@ export function ProductLayout () {
   }
 
 
-  const handleQueryPush = (query: Query) => {
-    const resetOrder = query._sort !== _sort && 'asc'
+  const handleSortBy = (sort: Query['_sort']) => {
+    const isAsc = sort !== _sort || _order === 'desc'
+
+    const orderParsed = {
+      asc: isAsc,
+      desc: !isAsc
+    }
+
+    const [orderValue] = Object
+      .entries(orderParsed)
+      .filter(([key, value]) => value)
+      .map(([key]) => key)
 
     const _query = qs.stringify({
-      ...query,
-      _order: resetOrder || query._order === 'asc' ? 'desc' : 'asc'
+      _sort: sort,
+      _page,
+      _order: orderValue,
     })
 
     router.push(`${paths.app.product}?${_query}`)
   }
 
+  const handlePageChange = (page: number) => {
+    const query= qs.stringify({
+      _order,
+      _sort,
+      _page: page
+    }) 
+
+    router.push(`${paths.app.product}?${query}`)
+
+  }
   const renderProducts = products.map(product => (
     <TableComponent.Tr key={product.id}>
       <TableComponent.Td>{product.id}</TableComponent.Td>
@@ -55,7 +76,8 @@ export function ProductLayout () {
     handleGetProducts({
       _order,
       _sort,
-      _page
+      _page,
+      _limit: perPage
     })
   }, [_order, _page, _sort])
 
@@ -73,32 +95,16 @@ export function ProductLayout () {
             <TableComponent.THead>
               <TableComponent.Tr>
                 <TableComponent.Th  
-                  onClick={() => handleQueryPush({
-                    _order,
-                    _sort: 'id',
-                    _page,
-                  })}
+                  onClick={() => handleSortBy('id')}
                 >ID</TableComponent.Th>
                 <TableComponent.Th
-                  onClick={() => handleQueryPush({
-                    _order,
-                    _sort: 'name',
-                    _page
-                  })}
+                  onClick={() => handleSortBy('name')}
                 >Nome</TableComponent.Th>
                 <TableComponent.Th
-                  onClick={() => handleQueryPush({
-                    _order,
-                    _sort: 'cost',
-                    _page
-                  })}  
+                  onClick={() => handleSortBy('cost')}  
                 >Preço</TableComponent.Th>
                 <TableComponent.Th
-                  onClick={() => handleQueryPush({
-                    _order,
-                    _sort: 'quantity',
-                    _page
-                  })}  
+                  onClick={() => handleSortBy('quantity')}  
                 >Quantidade</TableComponent.Th>
               </TableComponent.Tr>
             </TableComponent.THead>
@@ -106,6 +112,13 @@ export function ProductLayout () {
               {renderProducts}
             </TableComponent.TBody>
           </TableComponent.Table>
+          <Styles.SectionFooter>
+            <Pagination 
+              currentPage={Number(_page)}
+              totalPages={Number(totalPages)}
+              onPageChange={(page) => handlePageChange(page)}
+            />
+          </Styles.SectionFooter>
         </Styles.Section>
       </Box>
     </Styles.Container>

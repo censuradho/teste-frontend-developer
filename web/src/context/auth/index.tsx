@@ -42,6 +42,8 @@ export function AuthProvider ({ children }: PropsWithChildren) {
     api.interceptors.response.use(
       response => response,
       (error) => { 
+        console.log(error)
+
         const errorMessage = API_ERROR_MESSAGES?.[error?.response?.data?.message as keyof typeof API_ERROR_MESSAGES] || ''
 
         const isError = error?.response?.data?.status === 401

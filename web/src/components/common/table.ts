@@ -11,7 +11,7 @@ const THead = styled('thead', {
     position: 'sticky',
     background: '$background',
     top: 0,
-    zIndex: 99
+    zIndex: 3
   }
 })
 

@@ -23,6 +23,7 @@ const teste = {
 export const colors = {
   ...ancesst,
   primary: '#DBFF73',
+  primaryLight: '#EEFFC0',
   secondary: '#B8A9FB',
   tertiary: '#BBE6EC',
   quaternary: '#6DD4C1',

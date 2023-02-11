@@ -13,7 +13,7 @@ export const Section = styled('section', {
   borderRadius: '$default',
   maxHeight: '31.25rem',
   overflowY: 'auto',
-  padding: '1rem 0.5rem 1rem 1rem',
+  padding: '0 0.5rem 0 1rem',
 
   table: {
     border: '1px solid $border',
@@ -29,4 +29,13 @@ export const SectionHeader = styled('header', {
   padding: '1.3rem',
   position: 'sticky',
   left: 0,
+})
+
+export const SectionFooter = styled('footer', {
+  padding: '1.3rem',
+  position: 'sticky',
+  bottom: 0,
+  display: 'flex',
+  justifyContent: 'flex-end',
+  background: '$background'
 })

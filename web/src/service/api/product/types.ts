@@ -11,4 +11,5 @@ export interface Query {
   _sort: keyof Product
   _order: 'desc' | 'asc',
   _page: number
+  _limit: number
 }
