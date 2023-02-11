@@ -4,7 +4,8 @@ import { ToastProps } from './types'
 export function Toast (props: ToastProps) {
   const { 
     onOpenChange,
-    open
+    open,
+    message
   } = props
 
 
@@ -15,8 +16,8 @@ export function Toast (props: ToastProps) {
         open={open} 
         onOpenChange={onOpenChange}
       >
-        <Styles.Title>Title</Styles.Title>
-        <Styles.Description >Description </Styles.Description>
+        <Styles.Title>{message?.title}</Styles.Title>
+        <Styles.Description>{message?.description}</Styles.Description>
       </Styles.Root>
       <Styles.Viewport />
     </Styles.Provider>
