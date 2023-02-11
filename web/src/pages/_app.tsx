@@ -19,10 +19,10 @@ export default function MyApp ({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
-    <AuthProvider>
-      <ToastProvider>
+    <ToastProvider>
+      <AuthProvider>
         <Component {...pageProps} />
-      </ToastProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </ToastProvider>
   )
 }

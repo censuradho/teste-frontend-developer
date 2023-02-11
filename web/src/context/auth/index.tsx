@@ -1,3 +1,4 @@
+import { API_ERROR_MESSAGES } from "@/constants/messages";
 import { paths } from "@/constants/routes";
 import { useLocalStorage } from "@/hooks";
 import { api } from "@/service/api";
@@ -5,6 +6,7 @@ import { authService } from "@/service/api/auth";
 import { SignInWithEmailPasswordPayload } from "@/service/api/auth/types";
 import { useRouter } from "next/router";
 import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { useToast } from "../toast";
 import { Auth, AuthContextProps } from "./types";
 
 const AuthContext = createContext({} as AuthContextProps)
@@ -13,6 +15,7 @@ export const AUTH_KEY = '@teste-frontend'
 
 export function AuthProvider ({ children }: PropsWithChildren) {
   const router = useRouter()
+  const { onNotify } = useToast()
 
   const [auth, setAuth] = useLocalStorage<Auth | null>(AUTH_KEY, null)
   const [isLoading, setIsLoading] = useState(false)
@@ -21,6 +24,7 @@ export function AuthProvider ({ children }: PropsWithChildren) {
     try {
       setIsLoading(true)
       const { data } = await authService.signInWithEmailPassword(payload)
+
       setAuth(data)
       return data
     } finally {
@@ -34,7 +38,26 @@ export function AuthProvider ({ children }: PropsWithChildren) {
     setAuth(null)
   }
 
-  
+  useEffect(() => {
+    api.interceptors.response.use(
+      response => response,
+      (error) => { 
+        const errorMessage = API_ERROR_MESSAGES?.[error?.response?.data?.message as keyof typeof API_ERROR_MESSAGES] || ''
+
+        const isError = error?.response?.data?.status === 401
+
+        if (isError) {
+          onNotify({
+            title: 'Atenção! 🚨',
+            description: errorMessage
+          })
+          handleSignOut()
+        } 
+
+        return Promise.reject(error);
+      });
+  }, [])
+
   return (
     <AuthContext.Provider
       value={{

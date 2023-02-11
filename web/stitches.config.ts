@@ -30,7 +30,7 @@ const globalStyle = GlobalCss({
     },
     /* Handle */
     '&::-webkit-scrollbar-thumb': {
-      background: '$foreground',
+      background: '$ancesst6',
     },
 
   },

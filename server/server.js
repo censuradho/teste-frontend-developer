@@ -17,7 +17,9 @@ const expiresIn = '1h'
 
 // Create a token from a payload 
 function createToken(payload){
-  return jwt.sign(payload, SECRET_KEY, {expiresIn})
+  return jwt.sign(payload, SECRET_KEY, {
+    expiresIn
+  })
 }
 
 // Verify the token 

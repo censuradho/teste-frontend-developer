@@ -18,7 +18,7 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 1.Deve ter uma página de login para que o usuário possa entrar;
 2.Deve apresentar mensagem de erro ao tentar acessar uma rota sem logar;
 3.Caso o token expire, direcionar para tela de login informando que foi expirado;
-4.Após logado, deve ser direcionado para a listagem de produtos, que será uma 5.tabela mostrando os produtos cadastrados;
+4.Após logado, deve ser direcionado para a listagem de produtos, que será uma tabela mostrando os produtos cadastrados;
 6.Você pode adicionar mais produtos alterando o arquivo database.json;
 7.Para cada produto na listagem deve mostrar: id, nome, preço, quantidade, nome 8.da localidade e nome do tipo (família);
 9.A listagem deve ser paginada e deve permitir navegar entre as páginas e mostrar o total de itens, por exemplo: 20 produtos encontrados;
