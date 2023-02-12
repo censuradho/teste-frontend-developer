@@ -41,7 +41,7 @@ export function Pagination (props: PaginationProps) {
           min={1}
           value={currentPage}
           defaultValue={currentPage}
-          onChange={(event) => handlePageChange(Number(event.target.value))}
+          onChange={(event) => onPageChange(Number(event.target.value))}
         />
         <Styles.Bullet disabled={!isLessThanMax} onClick={() => handlePageChange(1)}>
           {forward}
