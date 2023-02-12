@@ -4,6 +4,7 @@ export const Container = styled('div', {
   padding: '1rem',
   borderRadius: '$default',
   width: '100%',
+  background: '$background',
 
   '*': {
     color: '$heading',

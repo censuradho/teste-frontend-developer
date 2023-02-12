@@ -1,10 +1,23 @@
 import { Box, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
+import { transactionService } from '@/service/api/transactions'
+import { useEffect, useState } from 'react'
 import { Card } from './components'
 import * as Styles from './styles'
 
 export function ReportLayout () {
+  const [transactions, setTransactions] = useState([])
+
+  const handleGetTransactions = async () => {
+    const { data } = await transactionService.findAll()
+    console.log(data)
+  }
+
   const currentMonth = format(new Date(), 'LLLL')
+
+  useEffect(() => {
+    handleGetTransactions()
+  }, [])
 
   return (
     <Styles.Container>
@@ -23,9 +36,9 @@ export function ReportLayout () {
             '@table-min': 'row'
           }}
         >
-          <Card icon="clock" variant="primary" title="title" amount={20} />
-          <Card icon="clock" variant="secondary" title="title" amount={20} />
-          <Card icon="clock" variant="tertiary" title="title" amount={20} />
+          <Card icon="clock" title="title" amount={20} />
+          <Card icon="clock" title="title" amount={20} />
+          <Card icon="clock" title="title" amount={20} />
         </Box>
       </Styles.Section>
     </Styles.Container>

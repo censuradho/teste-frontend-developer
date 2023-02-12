@@ -8,12 +8,11 @@ export function Card (props: CardProps) {
   const { 
     amount,
     title,
-    variant,
     icon
   } = props
 
   return (
-    <Styles.Container variant={variant}>
+    <Styles.Container >
       <Box flexDirection="column" gap={0.7}>
         <Box justifyContent="space-between" alignItems="center">
           <Typography size="md" fontWeight="600" >{title}</Typography>
