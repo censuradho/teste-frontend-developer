@@ -24,34 +24,6 @@ const globalStyle = GlobalCss({
     boxSizing: 'border-box',
     fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
     color: '$text',
-    /* Track */
-    '&::-webkit-scrollbar-track': {
-      background: '$background'
-    },
-    /* Handle */
-    '&::-webkit-scrollbar-thumb': {
-      background: '$ancesst6',
-    },
-
-  },
-  html: {
-    '::-webkit-scrollbar': {
-      width: '10px',
-      borderRadius: '$default'
-    },
-    
-    /* Track */
-    '::-webkit-scrollbar-track': {
-      background: '$background',
-      borderRadius: '$default'
-    },
-    
-    /* Handle */
-    '::-webkit-scrollbar-thumb': {
-      background: '$ancesst3',
-      borderRadius: '$default'
-    },
-    
   },
   kbd: {
     background: '$ancesst6',
@@ -74,7 +46,7 @@ const globalStyle = GlobalCss({
     
     /* Handle */
     '::-webkit-scrollbar-thumb': {
-      background: '$ancesst3',
+      background: '$border',
       borderRadius: '$default'
     },
     
