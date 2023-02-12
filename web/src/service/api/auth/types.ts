@@ -4,5 +4,8 @@ export interface SignInWithEmailPasswordPayload {
 }
 
 export interface SignInWithEmailPasswordResponse {
+  id: string
   access_token: string
+  email: string
+  role: string
 }

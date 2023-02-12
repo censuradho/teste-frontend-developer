@@ -7,7 +7,7 @@ import { SignInWithEmailPasswordPayload } from "@/service/api/auth/types";
 import { useRouter } from "next/router";
 import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
 import { useToast } from "../toast";
-import { Auth, AuthContextProps } from "./types";
+import { Auth, AuthContextProps, Role } from "./types";
 
 const AuthContext = createContext({} as AuthContextProps)
 
@@ -65,6 +65,7 @@ export function AuthProvider ({ children }: PropsWithChildren) {
       value={{
         auth,
         isLoading,
+        isAdmin: auth?.role === Role.admin,
         isSigned: !!auth,
         onLoginWithEmailPassword: handleLoginWithEmailPassword,
         onSignOut: handleSignOut

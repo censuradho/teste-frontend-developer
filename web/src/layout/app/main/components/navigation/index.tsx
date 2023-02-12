@@ -1,4 +1,4 @@
-import { Avatar, Icon, ActiveLink } from '@/components/common'
+import { Avatar, Icon, ActiveLink, AdminView, Box } from '@/components/common'
 import { paths } from '@/constants/routes'
 import { useAuth } from '@/context/auth'
 import * as Styles from './styles'
@@ -10,7 +10,7 @@ export function Navigation (props: NavigationProps) {
     onToggleMenu
   } = props
   
-  const { onSignOut } = useAuth()
+  const { onSignOut, auth } = useAuth()
 
   return (
     <Styles.Overlay onClick={onToggleMenu}  open={open}>
@@ -31,12 +31,24 @@ export function Navigation (props: NavigationProps) {
           </Styles.Root>
         </Styles.Header>
         <Styles.List>
-          {/* <Styles.Item>
-            <ActiveLink href={paths._members.list}>
-              <Icon name="users" />
-              Product
-            </ActiveLink>
-          </Styles.Item> */}
+          <AdminView>
+            <Styles.Item>
+              <ActiveLink href={paths.app.product}>
+                <Icon name="dashboard" />
+                Dashboard
+              </ActiveLink>
+            </Styles.Item>
+            <AdminView>
+              <Styles.Item>
+                <ActiveLink href={paths.app.report}>
+                  <Icon name="report" />
+                  <Box alignItems="center" gap={0.5}>
+                  Relatório
+                  </Box>
+                </ActiveLink>
+              </Styles.Item>
+            </AdminView>
+          </AdminView>
         </Styles.List>
       </Styles.Navigation>
     </Styles.Overlay>

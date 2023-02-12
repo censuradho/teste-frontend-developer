@@ -5,7 +5,9 @@ export const Container = styled('div', {
 })
 
 export const Header = styled('header', {
-  marginBottom: '1.3rem'
+  marginBottom: '1.3rem',
+  display: 'flex',
+  justifyContent: 'space-between'
 })
 
 export const Section = styled('section', {

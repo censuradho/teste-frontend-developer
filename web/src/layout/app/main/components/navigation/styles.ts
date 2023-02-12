@@ -82,6 +82,7 @@ export const List = styled('ul', {
 
 export const Item = styled('li', {
   width: '100%',
+  fontSize: '.875rem',
 
   a: {
     width: '100%',

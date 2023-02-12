@@ -1,11 +1,12 @@
 import {
   AiFillLinkedin,
+  AiFillLock,
   AiOutlineClose, AiOutlineHome, AiOutlineMail, AiOutlineUser
 } from '@meronex/icons/ai';
 import {
   BiCodeAlt, BiCommand, BilFacebookSquare, BilGithub,
-  BilInstagramAlt, BilSpotify, BilTwitter, BisDashboard, 
-  BisDownArrow, BisUpArrow, BisShareAlt
+  BilInstagramAlt, BilSpotify, BilTwitter, BisDashboard,
+  BisDownArrow, BisFilePdf, BisReport, BisShareAlt, BisUpArrow
 } from '@meronex/icons/bi';
 import {
   EnLocationPin
@@ -36,10 +37,6 @@ import {
 import {
   MdcClockFast, MdcPokerChip, MdcWeb
 } from '@meronex/icons/mdc';
-import {
-  RiArrowDropDownFill,
-  RiArrowDropUpFill
-} from '@meronex/icons/ri/';
 
 export const icons = {
   suiteCase: FaSuitcase,
@@ -75,4 +72,7 @@ export const icons = {
   menuLeft: CgMenuLeft ,
   arrowDropDown: BisDownArrow,
   arrowDropUp: BisUpArrow,
+  pdf: BisFilePdf ,
+  report: BisReport,
+  lock: AiFillLock 
 }

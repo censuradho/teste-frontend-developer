@@ -1,4 +1,4 @@
-import { Box, Icon, Pagination, Typography } from '@/components/common'
+import { AdminView, Box, Button, ButtonIcon, Icon, Pagination, Typography } from '@/components/common'
 import { productService } from '@/service/api/product'
 import { Product, Query } from '@/service/api/product/types'
 import { useEffect, useState } from 'react'
