@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/49209628/218332034-a51849bf-f5fb-4963-b42a-fe7c3bfd1746.png)
+
 # Desafio Técnico - Next + JSON Server
 
 O objetivo é construir um front end em Next JS para consumir uma API já pronta.
