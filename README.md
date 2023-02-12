@@ -78,8 +78,7 @@ Primeiro clone ou faça download do projeto
 git clone o https://github.com/censuradho/teste-frontend-developer.git
 ```
 
-Depois disso, instale as dependências executando o seguinte comando na raiz de cada uma dos respectivos diretórios `web` e `server` do projeto
-
+Depois disso, instale as dependências executando o seguinte comando na raiz de cada uma dos respectivos diretórios `web` e `server`.
 ```
 npm install
 ```
