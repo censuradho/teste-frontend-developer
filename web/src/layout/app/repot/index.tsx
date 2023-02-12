@@ -44,7 +44,7 @@ export function ReportLayout () {
   return (
     <Styles.Container>
       <Styles.Header>
-        <Typography size="lg" color="heading" fontWeight="800">Relatório</Typography>
+        <Typography as="h1" size="lg" color="heading" fontWeight="800">Relatório</Typography>
         <Box 
           flexDirection="column" 
           alignItems={{

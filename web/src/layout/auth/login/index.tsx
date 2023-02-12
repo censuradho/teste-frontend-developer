@@ -47,7 +47,7 @@ export function LoginLayout () {
       <Styles.Info>
         <div style={{ maxWidth: '400px' }}>
           <Styles.Title>Login</Styles.Title>
-          <Typography fontWeight="500" color="heading" size="md">Faça o login para começar a desapegar</Typography>
+          <Typography as="p" fontWeight="500" color="heading" size="md">Faça o login para começar a utilizar nossas features</Typography>
         </div>
       </Styles.Info>
       <Styles.Section>

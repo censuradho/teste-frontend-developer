@@ -30,7 +30,11 @@ export const ths = [
   },
   {
     label: 'Localidade',
-    id: 'locations'
+    id: 'locationsId'
+  },
+  {
+    label: 'Familia',
+    id: 'familyId'
   }
 ]
 
@@ -113,6 +117,7 @@ export function ProductLayout () {
       <TableComponent.Td>{toLocaleString(product.cost)}</TableComponent.Td>
       <TableComponent.Td>{product.quantity}</TableComponent.Td>
       <TableComponent.Td>{product?.locations?.name}</TableComponent.Td>
+      <TableComponent.Td>{product?.family?.name}</TableComponent.Td>
     </TableComponent.Tr>
   ))
 
@@ -129,7 +134,7 @@ export function ProductLayout () {
     <Styles.Container>
       <Box flexDirection="column">
         <Styles.Header>
-          <Typography size="lg" color="heading" fontWeight="800">Dashboard</Typography>
+          <Typography as="h1" size="lg" color="heading" fontWeight="800">Dashboard</Typography>
         </Styles.Header>
         <Styles.Section>
           <Styles.SectionHeader>

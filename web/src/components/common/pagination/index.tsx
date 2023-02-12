@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box } from '../box'
 import { Icon } from '../icon';
+import { Typography } from '../typography';
 import * as Styles from './styles'
 import { PaginationProps } from './types'
 
@@ -27,6 +28,7 @@ export function Pagination (props: PaginationProps) {
 
   return (
     <Styles.Container>
+      <Typography size="xsm">{`${currentPage} de ${totalPages}`}</Typography>
       <Box gap={0.3}>
         <Styles.Bullet disabled={!isBiggerThanMin} active onClick={() => handlePageChange(-2)}>
           {backward2x}
@@ -47,17 +49,6 @@ export function Pagination (props: PaginationProps) {
         <Styles.Bullet disabled={!isLessThanMax} active onClick={() => handlePageChange(2)}>
           {forward2x}
         </Styles.Bullet>
-      
-        {/* <Styles.Controller onClick={() => onPageChange(currentPage > 1 ? currentPage -1 : 0)}>Prev</Styles.Controller>
-        <Styles.CurrentPageInput 
-          value={currentPage} 
-          max={totalPages}
-          min={1}
-          type="number"
-          defaultValue={1}
-          onChange={event => onPageChange(Number(event.target.value))}
-        />
-        <Styles.Controller onClick={() => onPageChange(currentPage + 1)}>Next</Styles.Controller> */}
       </Box>
     </Styles.Container>
   )

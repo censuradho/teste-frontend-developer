@@ -12,8 +12,7 @@ function getProducts (query: Query = {
 }) {
   const queryParsed = qs.stringify({
     ...query,
-    _expand: 'locations',
-    _embed: 'family'
+    _expand: ['locations', 'family'],
   })
   return api.get<Product[]>(`/products?${queryParsed}`)
 }

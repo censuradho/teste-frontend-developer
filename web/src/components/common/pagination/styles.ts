@@ -1,21 +1,10 @@
 import { styled } from 'stitches.config'
 
-export const Container = styled('div', {})
-
-export const Controller = styled('button', {
-  fontSize: '$xsm',
-  textTransform: 'uppercase',
-  fontWeight: 600,
-  background: '$primaryLight',
-  color: '$heading',
-  padding: '0.3rem 0.7rem',
-  borderRadius: '$default',
-  transition: '0.2s',
-
-  '&:hover': {
-    color: '#fff',
-    background: '$ancesst0'
-  }
+export const Container = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.5rem',
+  alignItems: 'center'
 })
 
 export const CurrentPageInput = styled('input', {

@@ -15,15 +15,15 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 
 ## Funcionalidades do front end:
 
-1.Deve ter uma página de login para que o usuário possa entrar;
-2.Deve apresentar mensagem de erro ao tentar acessar uma rota sem logar;
-3.Caso o token expire, direcionar para tela de login informando que foi expirado;
-4.Após logado, deve ser direcionado para a listagem de produtos, que será uma tabela mostrando os produtos cadastrados;
-6.Você pode adicionar mais produtos alterando o arquivo database.json;
-7.Para cada produto na listagem deve mostrar: id, nome, preço, quantidade, nome 8.da localidade e nome do tipo (família);
-9.A listagem deve ser paginada e deve permitir navegar entre as páginas e mostrar o total de itens, por exemplo: 20 produtos encontrados;
-10.Na listagem o usuário deve ser capaz de ordenar baseado no campo desejado, por exemplo: se clicou na coluna id, irá ordenar pelo id asc, se clicar novamente, ordenar desc. Se clicar no nome, ordenar asc, se clicar novamente, ordenar desc, etc.image.png
-11.Para um usuário específico à sua escolha (outros usuários não devem acessar), deve permitir acessar uma rota com um relatório exibindo: quantidade, preço total dos produtos e quantidade total. Ao clicar para gerar o relatório, deve exibir em outra guia e em PDF. 
+1.[x] Deve ter uma página de login para que o usuário possa entrar;
+2.[x] Deve apresentar mensagem de erro ao tentar acessar uma rota sem logar;
+3.[x] Caso o token expire, direcionar para tela de login informando que foi expirado;
+4.[x] Após logado, deve ser direcionado para a listagem de produtos, que será uma tabela mostrando os produtos cadastrados;
+6.[x] Você pode adicionar mais produtos alterando o arquivo database.json;
+7.[x] Para cada produto na listagem deve mostrar: id, nome, preço, quantidade, nome da localidade e nome do tipo (família);
+9.[x] A listagem deve ser paginada e deve permitir navegar entre as páginas e mostrar o total de itens, por exemplo: 20 produtos encontrados;
+10.[] Na listagem o usuário deve ser capaz de ordenar baseado no campo desejado, por exemplo: se clicou na coluna id, irá ordenar pelo id asc, se clicar novamente, ordenar desc. Se clicar no nome, ordenar asc, se clicar novamente, ordenar desc, etc.
+11.[x] Para um usuário específico à sua escolha (outros usuários não devem acessar), deve permitir acessar uma rota com um relatório exibindo: quantidade, preço total dos produtos e quantidade total. Ao clicar para gerar o relatório, deve exibir em outra guia e em PDF. 
 
 ## Entrega:
 
