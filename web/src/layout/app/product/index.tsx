@@ -1,4 +1,4 @@
-import { Box, Pagination, Typography } from '@/components/common'
+import { Box, Icon, Pagination, Typography } from '@/components/common'
 import { productService } from '@/service/api/product'
 import { Product, Query } from '@/service/api/product/types'
 import { useEffect, useState } from 'react'
@@ -27,6 +27,10 @@ const ths = [
   {
     label: 'Quantidade',
     id: 'quantity'
+  },
+  {
+    label: 'Localidade',
+    id: 'locations'
   }
 ]
 
@@ -83,11 +87,24 @@ export function ProductLayout () {
 
   }
 
-  const renderThs = ths.map((value, index) => (
-    <TableComponent.Th key={index}>
-      {value.label}
-    </TableComponent.Th>
-  ))
+  const renderThs = ths.map((value, index) => {
+    const isAsc = value.id === _sort && _order === 'asc'
+    const isDesc = value.id === _sort && _order === 'desc'
+    return (
+      <TableComponent.Th 
+        key={index}
+        onClick={() => handleSortBy(value.id as any)}
+      >
+        <Box alignItems="center" gap={0.5}>
+          {value.label}
+          <Box gap={0.1}>
+            <Icon size={10} name="arrowDropDown" color={isDesc ? 'quaternary' : 'text'} />
+            <Icon size={10} name="arrowDropUp" color={isAsc ? 'quaternary' : 'text'} />
+          </Box>
+        </Box>
+      </TableComponent.Th>
+    )
+  })
 
   const renderProducts = products.map(product => (
     <TableComponent.Tr key={product.id}>
@@ -95,6 +112,7 @@ export function ProductLayout () {
       <TableComponent.Td>{product.name}</TableComponent.Td>
       <TableComponent.Td>{toLocaleString(product.cost)}</TableComponent.Td>
       <TableComponent.Td>{product.quantity}</TableComponent.Td>
+      <TableComponent.Td>{product?.locations?.name}</TableComponent.Td>
     </TableComponent.Tr>
   ))
 
@@ -120,18 +138,7 @@ export function ProductLayout () {
           <TableComponent.Table>
             <TableComponent.THead>
               <TableComponent.Tr>
-                <TableComponent.Th  
-                  onClick={() => handleSortBy('id')}
-                >ID</TableComponent.Th>
-                <TableComponent.Th
-                  onClick={() => handleSortBy('name')}
-                >Nome</TableComponent.Th>
-                <TableComponent.Th
-                  onClick={() => handleSortBy('cost')}  
-                >Preço</TableComponent.Th>
-                <TableComponent.Th
-                  onClick={() => handleSortBy('quantity')}  
-                >Quantidade</TableComponent.Th>
+                {renderThs}
               </TableComponent.Tr>
             </TableComponent.THead>
             <TableComponent.TBody>

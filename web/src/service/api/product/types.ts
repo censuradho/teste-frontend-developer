@@ -1,3 +1,7 @@
+interface Location {
+  id: number
+  name: string
+}
 export interface Product {
   id: number
   name: string
@@ -5,6 +9,7 @@ export interface Product {
   quantity: number
   locationId: number
   familyId: number
+  locations: Location
 }
 
 export interface Query {

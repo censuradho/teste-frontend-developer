@@ -4,7 +4,8 @@ import {
 } from '@meronex/icons/ai';
 import {
   BiCodeAlt, BiCommand, BilFacebookSquare, BilGithub,
-  BilInstagramAlt, BilSpotify, BilTwitter, BisDashboard, BisShareAlt
+  BilInstagramAlt, BilSpotify, BilTwitter, BisDashboard, 
+  BisDownArrow, BisUpArrow, BisShareAlt
 } from '@meronex/icons/bi';
 import {
   EnLocationPin
@@ -72,6 +73,6 @@ export const icons = {
   product: FaOpencart,
   dashboard: BisDashboard,
   menuLeft: CgMenuLeft ,
-  arrowDropDown: RiArrowDropDownFill,
-  arrowDropUp: RiArrowDropUpFill,
+  arrowDropDown: BisDownArrow,
+  arrowDropUp: BisUpArrow,
 }

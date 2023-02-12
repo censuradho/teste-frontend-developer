@@ -31,7 +31,6 @@ export const SectionHeader = styled('header', {
   left: 0,
 })
 
-
 export const SectionFooter = styled('footer', {
   padding: '1.3rem',
   position: 'sticky',
