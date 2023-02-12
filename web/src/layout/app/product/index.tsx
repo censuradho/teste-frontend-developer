@@ -1,13 +1,13 @@
-import { AdminView, Box, Button, ButtonIcon, Icon, Pagination, Typography } from '@/components/common'
+import { Box, Icon, Pagination, Typography } from '@/components/common'
 import { productService } from '@/service/api/product'
 import { Product, Query } from '@/service/api/product/types'
+import qs from 'querystring'
 import { useEffect, useState } from 'react'
 import * as Styles from './styles'
-import qs from 'querystring'
 
 import { TableComponent } from '@/components/common'
-import { useRouter } from 'next/router'
 import { paths } from '@/constants/routes'
+import { useRouter } from 'next/router'
 
 import { toLocaleString } from '@/utils/helpers'
 
@@ -34,7 +34,7 @@ export const ths = [
   },
   {
     label: 'Familia',
-    id: 'familyId'
+    id: 'familiesId'
   }
 ]
 
@@ -49,12 +49,14 @@ export function ProductLayout () {
 
   const perPage = 10
   const [products, setProducts] = useState<Product[]>([])
-  const [totalPages, setTotalPages] = useState(0)
+  const [totalResults, setTotalResults] = useState(0)
+
+  const totalPages = Math.ceil(totalResults / perPage)
 
   const handleGetProducts = async (query: Query) => {
     const { data, headers } = await productService.getProducts(query)
     setProducts(data)
-    setTotalPages(Math.ceil(headers['x-total-count'] / 10))
+    setTotalResults(Number(headers['x-total-count'] || 0))
   }
 
 
@@ -143,6 +145,7 @@ export function ProductLayout () {
         <Styles.Section>
           <Styles.SectionHeader>
             <Typography size="md" color="heading" fontWeight="600">Products</Typography>
+            <Typography size="xsm"><Typography as="strong">{renderProducts.length}</Typography> resultados por página</Typography>
           </Styles.SectionHeader>
           <TableComponent.Table>
             <TableComponent.THead>
@@ -155,7 +158,7 @@ export function ProductLayout () {
             </TableComponent.TBody>
           </TableComponent.Table>
           <Styles.SectionFooter>
-            <Typography size="xsm"><Typography as="strong">{renderProducts.length}</Typography> resultados</Typography>
+            <Typography size="xsm"><Typography as="strong">{totalResults}</Typography> resultados encontrados</Typography>
             <Pagination 
               currentPage={Number(_page)}
               totalPages={Number(totalPages)}

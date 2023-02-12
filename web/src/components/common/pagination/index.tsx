@@ -11,8 +11,6 @@ export function Pagination (props: PaginationProps) {
     totalPages,
     onPageChange
   } = props
-  const rowsPerPage = 10
-
   const forward2x = ">>"
   const forward = ">"
   const backward2x = "<<"

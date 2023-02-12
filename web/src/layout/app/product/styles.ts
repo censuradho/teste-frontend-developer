@@ -31,6 +31,11 @@ export const SectionHeader = styled('header', {
   padding: '1.3rem',
   position: 'sticky',
   left: 0,
+  display: 'flex',
+  gap: '1rem',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
 })
 
 export const SectionFooter = styled('footer', {
@@ -40,6 +45,8 @@ export const SectionFooter = styled('footer', {
   left: 0,
   width: '100%',
   display: 'flex',
+  flexWrap: 'wrap',
+  gap: '2rem',
   justifyContent: 'space-between',
   alignItems: 'center',
   background: '$background'
