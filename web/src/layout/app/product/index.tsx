@@ -11,6 +11,25 @@ import { paths } from '@/constants/routes'
 
 import { toLocaleString } from '@/utils/helpers'
 
+const ths = [
+  {
+    label: 'ID',
+    id: 'id'
+  },
+  {
+    label: 'Nome',
+    id: 'name'
+  },
+  {
+    label: 'Preço',
+    id: 'cost'
+  },
+  {
+    label: 'Quantidade',
+    id: 'quantity'
+  }
+]
+
 export function ProductLayout () {
   const router = useRouter()
   
@@ -63,6 +82,13 @@ export function ProductLayout () {
     router.push(`${paths.app.product}?${query}`)
 
   }
+
+  const renderThs = ths.map((value, index) => (
+    <TableComponent.Th key={index}>
+      {value.label}
+    </TableComponent.Th>
+  ))
+
   const renderProducts = products.map(product => (
     <TableComponent.Tr key={product.id}>
       <TableComponent.Td>{product.id}</TableComponent.Td>

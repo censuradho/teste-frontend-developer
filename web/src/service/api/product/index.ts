@@ -11,6 +11,7 @@ function getProducts (query: Query = {
   return api.get<Product[]>('/products', {
     params: {
       ...query,
+      _expand: 'locations'
     }
   })
 }

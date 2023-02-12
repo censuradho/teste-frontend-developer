@@ -35,3 +35,26 @@ export const CurrentPageInput = styled('input', {
     margin: 0
   }
 })
+
+export const Bullet = styled('button', {
+  fontWeight: 500,
+  color: '$heading',
+  width: '30px',
+  height: '30px',
+  background: '$ancesst6',
+  borderRadius: '50%',
+  border: '1px solid transparent',
+  outline: 'none',
+  
+  '&:hover, &:focus': {
+    borderColor: '$ancesst0',
+  },
+
+  variants: {
+    active: {
+      true: {
+        background: '$primary',
+      }
+    }
+  }
+})

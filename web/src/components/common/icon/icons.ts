@@ -35,7 +35,10 @@ import {
 import {
   MdcClockFast, MdcPokerChip, MdcWeb
 } from '@meronex/icons/mdc';
-
+import {
+  RiArrowDropDownFill,
+  RiArrowDropUpFill
+} from '@meronex/icons/ri/';
 
 export const icons = {
   suiteCase: FaSuitcase,
@@ -68,5 +71,7 @@ export const icons = {
   eye: BsFillEyeFill,
   product: FaOpencart,
   dashboard: BisDashboard,
-  menuLeft: CgMenuLeft 
+  menuLeft: CgMenuLeft ,
+  arrowDropDown: RiArrowDropDownFill,
+  arrowDropUp: RiArrowDropUpFill,
 }

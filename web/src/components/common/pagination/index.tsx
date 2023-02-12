@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box } from '../box'
+import { Icon } from '../icon';
 import * as Styles from './styles'
 import { PaginationProps } from './types'
 
@@ -10,25 +11,43 @@ export function Pagination (props: PaginationProps) {
     onPageChange
   } = props
   const rowsPerPage = 10
-  const start =  (currentPage - 1) / rowsPerPage
 
-  const end = currentPage * rowsPerPage
+  const forward2x = ">>"
+  const forward = ">"
+  const backward2x = "<<"
+  const backward = "<"
 
-  const pageBullets = Array(totalPages)
-    .fill(1)
-    .map((_, index) => index + 1)
- 
-  const offsetBullet = pageBullets.slice(start, end)
+  const isBiggerThanMin = currentPage > 1
+  const isLessThanMax = currentPage < totalPages
 
-  const renderBullets = offsetBullet.map((item) => (
-    <button key={item} onClick={() => onPageChange(item)}>{item}</button>
-  ))
 
-  console.log(start, end)
+  const handlePageChange = (value: number) => {
+    onPageChange(value + Number(currentPage))
+  }
+
   return (
     <Styles.Container>
-      <Box gap={1}>
-        {renderBullets}
+      <Box gap={0.3}>
+        <Styles.Bullet disabled={!isBiggerThanMin} active onClick={() => handlePageChange(-2)}>
+          {backward2x}
+        </Styles.Bullet>
+        <Styles.Bullet disabled={!isBiggerThanMin} onClick={() => handlePageChange(-1)}>
+          {backward}
+        </Styles.Bullet>
+        <Styles.CurrentPageInput
+          type="number"
+          min={1}
+          value={currentPage}
+          defaultValue={currentPage}
+          onChange={(event) => handlePageChange(Number(event.target.value))}
+        />
+        <Styles.Bullet disabled={!isLessThanMax} onClick={() => handlePageChange(1)}>
+          {forward}
+        </Styles.Bullet>
+        <Styles.Bullet disabled={!isLessThanMax} active onClick={() => handlePageChange(2)}>
+          {forward2x}
+        </Styles.Bullet>
+      
         {/* <Styles.Controller onClick={() => onPageChange(currentPage > 1 ? currentPage -1 : 0)}>Prev</Styles.Controller>
         <Styles.CurrentPageInput 
           value={currentPage} 
