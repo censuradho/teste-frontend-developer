@@ -1,6 +1,6 @@
 export const FORM_ERROR_MESSAGES = {
-  required: 'Required field',
-  invalid: 'Invalid format'
+  required: 'Compo obrigatório',
+  invalid: 'Formato inválido'
 }
 
 export const API_ERROR_MESSAGES = {
