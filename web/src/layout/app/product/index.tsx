@@ -110,16 +110,20 @@ export function ProductLayout () {
     )
   })
 
-  const renderProducts = products.map(product => (
-    <TableComponent.Tr key={product.id}>
-      <TableComponent.Td>{product.id}</TableComponent.Td>
-      <TableComponent.Td>{product.name}</TableComponent.Td>
-      <TableComponent.Td>{toLocaleString(product.cost)}</TableComponent.Td>
-      <TableComponent.Td>{product.quantity}</TableComponent.Td>
-      <TableComponent.Td>{product?.locations?.name}</TableComponent.Td>
-      <TableComponent.Td>{product?.family?.name}</TableComponent.Td>
-    </TableComponent.Tr>
-  ))
+  const renderProducts = products.map(product => {
+    const family = product?.families || {}
+
+    return (
+      <TableComponent.Tr key={product.id}>
+        <TableComponent.Td>{product.id}</TableComponent.Td>
+        <TableComponent.Td>{product.name}</TableComponent.Td>
+        <TableComponent.Td>{toLocaleString(product.cost)}</TableComponent.Td>
+        <TableComponent.Td>{product.quantity}</TableComponent.Td>
+        <TableComponent.Td>{product?.locations?.name}</TableComponent.Td>
+        <TableComponent.Td>{family?.name}</TableComponent.Td>
+      </TableComponent.Tr>
+    )
+  })
 
   useEffect(() => {
     handleGetProducts({
@@ -151,6 +155,7 @@ export function ProductLayout () {
             </TableComponent.TBody>
           </TableComponent.Table>
           <Styles.SectionFooter>
+            <Typography size="xsm"><Typography as="strong">{renderProducts.length}</Typography> resultados</Typography>
             <Pagination 
               currentPage={Number(_page)}
               totalPages={Number(totalPages)}

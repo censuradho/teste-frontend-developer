@@ -12,8 +12,8 @@ export interface Product {
   cost: number
   quantity: number
   locationId: number
-  familyId: number
-  family: Family
+  familiesId: number
+  families: Family
   locations: Location
 }
 

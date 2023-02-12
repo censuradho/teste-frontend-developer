@@ -13,7 +13,7 @@ export const Header = styled('header', {
 export const Section = styled('section', {
   background: '$background',
   borderRadius: '$default',
-  maxHeight: '31.25rem',
+  maxHeight: '32.25rem',
   overflowY: 'auto',
   padding: 0,
 
@@ -40,6 +40,7 @@ export const SectionFooter = styled('footer', {
   left: 0,
   width: '100%',
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
+  alignItems: 'center',
   background: '$background'
 })

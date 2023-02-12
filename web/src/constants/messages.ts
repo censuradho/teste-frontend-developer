@@ -1,5 +1,5 @@
 export const FORM_ERROR_MESSAGES = {
-  required: 'Compo obrigatório',
+  required: 'Campo obrigatório',
   invalid: 'Formato inválido'
 }
 

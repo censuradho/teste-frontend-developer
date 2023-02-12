@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from '@/components/common'
+import { Box, Button, ButtonLink, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
 import { transactionService } from '@/service/api/transactions'
 import { Transaction } from '@/service/api/transactions/types'
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
+import { BlobProvider , PDFViewer } from '@react-pdf/renderer'
 import { useEffect, useState } from 'react'
 import { Card, Pdf } from './components'
 import * as Styles from './styles'
@@ -54,8 +54,7 @@ export function ReportLayout () {
           gap={1}
         >
           <Typography fontWeight="600" color="heading">Referente ao mês de {currentMonth}</Typography>
-          <PDFDownloadLink
-            fileName="report.pdf" 
+          <BlobProvider 
             document={(
               <Pdf 
                 productAmount={productAmount}
@@ -64,14 +63,15 @@ export function ReportLayout () {
                 sameProductQuantity={sameProductQuantity}
               />
             )}>
-            {({  loading }) => (
-              <Button 
-                variant="secondary" 
+            {({  url }) => (
+              <ButtonLink 
+                variant="secondary"
+                target="_blank"
+                href={url || ''}
                 icon={{ name: 'pdf' }}
-                loading={loading}
-              >Gerar PDF</Button>
+              >Gerar PDF</ButtonLink>
             )}
-          </PDFDownloadLink>
+          </BlobProvider>
         </Box>
       </Styles.Header>
       <Styles.Section>
