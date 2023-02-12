@@ -12,6 +12,7 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 - [Instalação](#instalacao)
   - [Requisitos](#requisitos)
   - [Preparando o ambiente](#preparando-o-ambiente)
+- [Configurando token de expiração](#configurando)
 - [Adicionando dados ao servidor](#adicionando-dados-ao-servidor)
   - [products](#products)
   - [locations](#locations)
@@ -125,6 +126,10 @@ ou
 ```
 yarn start-auth
 ```
+
+## Configurando token de expiração
+
+Para configurar o tempo de expiração do token, vá no arquivo [server.ts](https://github.com/censuradho/teste-frontend-developer/blob/main/server/server.js) e na variável `expiresIn`, adicione o tempo necessário. [documentação JWT](https://www.npmjs.com/package/jsonwebtoken#usage)
 
 ## Adicionando dados ao servidor
 
