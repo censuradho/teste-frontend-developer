@@ -8,7 +8,7 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 - [Sobre o desafio](#sobre-o-desafio)
   - [Funcionamento da API](#funcionamento-da-api)
   - [Funcionalidades do front-end](#funcionalidades-do-front-end)
-- [Usuários](usuarios)
+- [Usuários](#usuarios)
 - [Instalação](#instalacao)
   - [Requisitos](#requisitos)
   - [Preparando o ambiente](#preparando-o-ambiente)
