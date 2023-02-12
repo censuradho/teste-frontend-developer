@@ -9,6 +9,7 @@ export const Button = styled('button', {
   position: 'relative',
   whiteSpace: 'nowrap',
   borderRadius: '3px',
+
   height: '3.125rem',
   '&:disabled': {
     cursor: 'not-allowed'
@@ -53,7 +54,14 @@ export const Button = styled('button', {
         padding: '0.7rem 1rem',
         fontWeight: 500,
         borderRadius: '$default',
+        border: '2px solid transparent',
         
+        '&:hover, &:focus': {
+          borderColor: '$ancesst0',
+        },
+        '*': {
+          color: '$heading'
+        }
       }
     }
   },

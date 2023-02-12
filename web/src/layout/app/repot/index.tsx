@@ -1,16 +1,37 @@
-import { Box, Typography } from '@/components/common'
+import { Box, Button, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
 import { transactionService } from '@/service/api/transactions'
+import { Transaction } from '@/service/api/transactions/types'
 import { useEffect, useState } from 'react'
 import { Card } from './components'
 import * as Styles from './styles'
 
 export function ReportLayout () {
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState<Transaction[]>([])
+
+  const groupBy = function(list: Record<string, any>[], key: string) {
+    return list.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  };
+
+  const transactionsGroupedBySameProduct = groupBy(transactions, 'productsId')
+
+  const sameProductQuantity = Object.keys(transactionsGroupedBySameProduct).length
+  const productsQuantity = transactions.length
+
+  const productQuantityTotal = transactions
+    .map(value => value.quantity)
+    ?.reduce((prev, next) => prev + next, 0)
+
+  const productAmount = transactions
+    .map(value => (value?.quantity || 0) * (value?.products?.cost || 0))
+    ?.reduce((prev, next) => prev + next, 0)
 
   const handleGetTransactions = async () => {
     const { data } = await transactionService.findAll()
-    console.log(data)
+    setTransactions(data)
   }
 
   const currentMonth = format(new Date(), 'LLLL')
@@ -23,8 +44,16 @@ export function ReportLayout () {
     <Styles.Container>
       <Styles.Header>
         <Typography size="lg" color="heading" fontWeight="800">Relatório</Typography>
-        <Box>
+        <Box 
+          flexDirection="column" 
+          alignItems={{
+            '@initial': 'flexStart',
+            '@table-min': "flexEnd"
+          }} 
+          gap={1}
+        >
           <Typography fontWeight="600" color="heading">Referente ao mês de {currentMonth}</Typography>
+          <Button variant="secondary" icon={{ name: 'pdf' }}>Gerar PDF</Button>
         </Box>
       </Styles.Header>
       <Styles.Section>
@@ -36,9 +65,10 @@ export function ReportLayout () {
             '@table-min': 'row'
           }}
         >
-          <Card icon="clock" title="title" amount={20} />
-          <Card icon="clock" title="title" amount={20} />
-          <Card icon="clock" title="title" amount={20} />
+          <Card icon="trendingUp" title="Quantidade" quantity={productsQuantity} />
+          <Card icon="trendingUp" title="Mesmo tipo quantidade" quantity={sameProductQuantity} />
+          <Card icon="trendingUp" title="Quantidade total" quantity={productQuantityTotal} />
+          <Card icon="money" title="Valor total" amount={productAmount} />
         </Box>
       </Styles.Section>
     </Styles.Container>

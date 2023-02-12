@@ -8,19 +8,21 @@ export function Card (props: CardProps) {
   const { 
     amount,
     title,
-    icon
+    icon,
+    quantity
   } = props
 
   return (
     <Styles.Container >
       <Box flexDirection="column" gap={0.7}>
         <Box justifyContent="space-between" alignItems="center">
-          <Typography size="md" fontWeight="600" >{title}</Typography>
+          <Typography color="heading" size="sm" fontWeight="600" >{title}</Typography>
           <Styles.IconView>
             <Icon name={icon} />
           </Styles.IconView>
         </Box>
-        <Typography fontWeight="500">{toLocaleString(amount) }</Typography>
+        {amount && <Typography fontWeight="500">{toLocaleString(amount)}</Typography>}
+        {quantity && <Typography fontWeight="500">{quantity}</Typography>}
       </Box>
     </Styles.Container>
   )

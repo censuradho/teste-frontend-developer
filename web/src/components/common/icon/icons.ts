@@ -15,6 +15,7 @@ import {
   FaDatabase, FaOpencart, FaSuitcase
 } from '@meronex/icons/fa';
 import {
+  IosTrendingUp,
   LogoWhatsapp
 } from '@meronex/icons/ios';
 import {
@@ -37,6 +38,7 @@ import {
 import {
   MdcClockFast, MdcPokerChip, MdcWeb
 } from '@meronex/icons/mdc';
+import { MdAttachMoney } from '@meronex/icons/md';
 
 export const icons = {
   suiteCase: FaSuitcase,
@@ -74,5 +76,7 @@ export const icons = {
   arrowDropUp: BisUpArrow,
   pdf: BisFilePdf ,
   report: BisReport,
-  lock: AiFillLock 
+  lock: AiFillLock,
+  trendingUp: IosTrendingUp,
+  money: MdAttachMoney
 }

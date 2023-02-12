@@ -47,7 +47,7 @@ export const Overlay = styled('div', {
   top: 0,
   left: 0,
   transition: '0.2s ease',
-  zIndex: 10,
+  zIndex: 11,
   
   variants: {
     open: {
@@ -154,7 +154,7 @@ const contentStyles = {
     '&[data-side="bottom"]': { animationName: slideUpAndFade },
     '&[data-side="left"]': { animationName: slideRightAndFade },
   },
-  zIndex: 10,
+  zIndex: 11,
 };
 
 export const DropdownMenuContent = styled(DropdownMenu.Content, contentStyles);
