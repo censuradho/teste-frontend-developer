@@ -2,8 +2,9 @@ import { Box, Button, Typography } from '@/components/common'
 import { format } from '@/lib/date-fns'
 import { transactionService } from '@/service/api/transactions'
 import { Transaction } from '@/service/api/transactions/types'
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
 import { useEffect, useState } from 'react'
-import { Card } from './components'
+import { Card, Pdf } from './components'
 import * as Styles from './styles'
 
 export function ReportLayout () {
@@ -53,7 +54,24 @@ export function ReportLayout () {
           gap={1}
         >
           <Typography fontWeight="600" color="heading">Referente ao mês de {currentMonth}</Typography>
-          <Button variant="secondary" icon={{ name: 'pdf' }}>Gerar PDF</Button>
+          <PDFDownloadLink
+            fileName="report.pdf" 
+            document={(
+              <Pdf 
+                productAmount={productAmount}
+                productsQuantity={productsQuantity}
+                productQuantityTotal={productQuantityTotal}
+                sameProductQuantity={sameProductQuantity}
+              />
+            )}>
+            {({  loading }) => (
+              <Button 
+                variant="secondary" 
+                icon={{ name: 'pdf' }}
+                loading={loading}
+              >Gerar PDF</Button>
+            )}
+          </PDFDownloadLink>
         </Box>
       </Styles.Header>
       <Styles.Section>

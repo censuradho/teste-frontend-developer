@@ -11,7 +11,7 @@ import { paths } from '@/constants/routes'
 
 import { toLocaleString } from '@/utils/helpers'
 
-const ths = [
+export const ths = [
   {
     label: 'ID',
     id: 'id'
