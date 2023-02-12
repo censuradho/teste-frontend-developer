@@ -6,6 +6,7 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 - [Sobre o desafio](#sobre-o-desafio)
   - [Funcionamento da API](#funcionamento-da-api)
   - [Funcionalidades do front-end](#funcionalidades-do-front-end)
+- [Usuários](usuarios)
 - [Instalação](#instalacao)
   - [Requisitos](#requisitos)
   - [Preparando o ambiente](#preparando-o-ambiente)
@@ -40,6 +41,21 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 - Na listagem o usuário deve ser capaz de ordenar baseado no campo desejado, por exemplo: se clicou na coluna id, irá ordenar pelo id asc, se clicar novamente, ordenar desc. Se clicar no nome, ordenar asc, se clicar novamente, ordenar desc, etc.
 - Para um usuário específico à sua escolha (outros usuários não devem acessar), deve permitir acessar uma rota com um relatório exibindo: quantidade, preço total dos produtos e quantidade total. Ao clicar para gerar o relatório, deve exibir em outra guia e em PDF. 
 
+## Usuários
+
+Para acessar a aplicação, é preciso logar na aplicação. A seguir, está 2  usuários que você pode utilizar, no arquivo [user.json](https://github.com/censuradho/teste-frontend-developer/blob/main/server/users.json) você encontra alista completa de usuários:
+
+### Bruno | ADMIN
+
+email: bruno@email.com
+
+password: bruno
+
+### Nilson | Usuário comum
+
+email: nilson@email.com
+
+password: nilson
 
 ## Instalação
 
