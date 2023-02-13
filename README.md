@@ -46,7 +46,7 @@ O objetivo é construir um front end em Next JS para consumir uma API já pronta
 
 ## Usuários
 
-Para acessar a aplicação, é preciso logar na aplicação. A seguir, está 2  usuários que você pode utilizar, no arquivo [user.json](https://github.com/censuradho/teste-frontend-developer/blob/main/server/users.json) você encontra alista completa de usuários:
+Para acessar a aplicação, é preciso logar na aplicação. Aqui estão 2 usuários que você pode utilizar, no arquivo [user.json](https://github.com/censuradho/teste-frontend-developer/blob/main/server/users.json) você encontra alista completa de usuários:
 
 ### Bruno | ADMIN
 
