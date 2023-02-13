@@ -78,7 +78,7 @@ Primeiro clone ou faça download do projeto
 git clone o https://github.com/censuradho/teste-frontend-developer.git
 ```
 
-Depois disso, instale as dependências executando o seguinte comando na raiz de cada uma dos respectivos diretórios `web` e `server`.
+Depois disso, instale as dependências executando o seguinte comando na raiz de cada um dos respectivos diretórios `web` e `server`.
 ```
 npm install
 ```
@@ -128,11 +128,11 @@ yarn start-auth
 
 ## Configurando token de expiração
 
-Para configurar o tempo de expiração do token, vá no arquivo [server.ts](https://github.com/censuradho/teste-frontend-developer/blob/main/server/server.js) e na variável `expiresIn`, adicione o tempo necessário. [documentação JWT](https://www.npmjs.com/package/jsonwebtoken#usage)
+Para configurar o tempo de expiração do token, que é responsável pela autenticação do usuário, vá no arquivo [server.ts](https://github.com/censuradho/teste-frontend-developer/blob/main/server/server.js) e na variável `expiresIn`, adicione o tempo necessário. [documentação JWT](https://www.npmjs.com/package/jsonwebtoken#usage)
 
 ## Adicionando dados ao servidor
 
-O arquivo [database.json](https://github.com/censuradho/teste-frontend-developer/blob/main/server/database.json) existe as entidades
+No arquivo [database.json](https://github.com/censuradho/teste-frontend-developer/blob/main/server/database.json) existe as entidades
 
 ### products
 
